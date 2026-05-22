@@ -1,22 +1,20 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Crown, Scissors, Sparkles, Droplets } from "lucide-react";
 
 function scrollToBooking() {
   document.getElementById("reservar")?.scrollIntoView({ behavior: "smooth" });
 }
 
-const EASE = [0.5, 0, 0, 1] as [number, number, number, number];
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.12, ease: EASE }
-  })
-};
+function fadeUpProps(index: number) {
+  return {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.8, delay: index * 0.12, ease: "easeOut" as const }
+  };
+}
 
 const FEATURED_IMG =
   "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1400&q=80";
@@ -50,11 +48,7 @@ export default function ServicesBento() {
       <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[300px] gap-5 md:gap-6">
         {/* 1. FEATURED */}
         <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          {...fadeUpProps(0)}
           className="md:col-span-2 md:row-span-2 bg-primary rounded-3xl p-8 md:p-10 flex flex-col justify-end relative overflow-hidden group hover-lift"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,11 +91,7 @@ export default function ServicesBento() {
 
         {/* 2. Standard A */}
         <motion.div
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          {...fadeUpProps(1)}
           className="bg-white border border-primary/5 rounded-3xl p-7 shadow-soft hover:border-accent/40 hover-lift transition-colors flex flex-col"
         >
           <div className="w-11 h-11 bg-accent/10 rounded-full flex items-center justify-center mb-6">
@@ -125,11 +115,7 @@ export default function ServicesBento() {
 
         {/* 3. Standard B */}
         <motion.div
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          {...fadeUpProps(2)}
           className="bg-white border border-primary/5 rounded-3xl p-7 shadow-soft hover:border-accent/40 hover-lift transition-colors flex flex-col"
         >
           <div className="w-11 h-11 bg-accent/10 rounded-full flex items-center justify-center mb-6">
@@ -152,11 +138,7 @@ export default function ServicesBento() {
 
         {/* 4. ACCENT con imagen */}
         <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          {...fadeUpProps(3)}
           className="md:col-span-2 bg-secondary text-white rounded-3xl p-7 md:p-9 flex flex-col md:flex-row items-stretch gap-6 md:gap-8 overflow-hidden relative hover-lift"
         >
           <div className="relative w-full md:w-48 h-40 md:h-auto rounded-2xl overflow-hidden flex-shrink-0">
