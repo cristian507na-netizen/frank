@@ -81,7 +81,7 @@ export default function ServicesBento() {
             </p>
             <button
               onClick={scrollToBooking}
-              className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors uppercase tracking-widest text-xs font-bold"
+              className="inline-flex items-center gap-2 self-start mt-2 px-5 py-2.5 rounded-full bg-accent text-primary hover:bg-white transition-colors uppercase tracking-widest text-[11px] font-bold"
             >
               Reservar
               <span aria-hidden>→</span>
@@ -107,9 +107,10 @@ export default function ServicesBento() {
           </p>
           <button
             onClick={scrollToBooking}
-            className="text-primary hover:text-accent transition-colors uppercase tracking-widest text-[11px] font-bold mt-6 text-left"
+            className="inline-flex items-center gap-2 self-start mt-6 px-4 py-2 rounded-full border border-primary/15 text-primary hover:bg-primary hover:text-accent hover:border-primary transition-colors uppercase tracking-widest text-[11px] font-bold"
           >
-            Reservar →
+            Reservar
+            <span aria-hidden>→</span>
           </button>
         </motion.div>
 
@@ -130,9 +131,10 @@ export default function ServicesBento() {
           </p>
           <button
             onClick={scrollToBooking}
-            className="text-primary hover:text-accent transition-colors uppercase tracking-widest text-[11px] font-bold mt-6 text-left"
+            className="inline-flex items-center gap-2 self-start mt-6 px-4 py-2 rounded-full border border-primary/15 text-primary hover:bg-primary hover:text-accent hover:border-primary transition-colors uppercase tracking-widest text-[11px] font-bold"
           >
-            Reservar →
+            Reservar
+            <span aria-hidden>→</span>
           </button>
         </motion.div>
 
@@ -170,7 +172,7 @@ export default function ServicesBento() {
             </div>
             <button
               onClick={scrollToBooking}
-              className="self-start mt-6 inline-flex items-center gap-2 text-accent hover:text-white transition-colors uppercase tracking-widest text-xs font-bold"
+              className="inline-flex items-center gap-2 self-start mt-6 px-5 py-2.5 rounded-full bg-accent text-primary hover:bg-white transition-colors uppercase tracking-widest text-[11px] font-bold"
             >
               Reservar
               <span aria-hidden>→</span>

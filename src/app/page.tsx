@@ -38,23 +38,44 @@ export default function Page() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] bg-primary overflow-hidden"
           >
-            {/* Foto a pantalla completa */}
-            <motion.div
-              initial={{ scale: 1.1, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 2.4, ease: [0.5, 0, 0, 1] }}
-              className="absolute inset-0"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/frank.jpg"
-                alt="Frank"
-                className="absolute inset-0 w-full h-full object-cover object-[50%_30%] opacity-60"
+            {/* Fondo atmosférico — gradient orbs y grain sutil */}
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-primary" />
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 0.5, scale: 1 }}
+                transition={{ duration: 2.4, ease: "easeOut" }}
+                className="absolute top-[-15%] right-[-10%] w-[55vw] h-[55vw] rounded-full bg-accent/30 blur-[140px]"
               />
-              {/* Gradient overlays para mood y legibilidad */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-primary/50 to-primary" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-primary/60" />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 0.35, scale: 1 }}
+                transition={{ duration: 2.4, ease: "easeOut", delay: 0.3 }}
+                className="absolute bottom-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-accent-soft/20 blur-[160px]"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.18 }}
+                transition={{ duration: 3 }}
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 20% 80%, rgba(184,134,91,0.15), transparent 60%), radial-gradient(circle at 80% 20%, rgba(215,180,140,0.12), transparent 55%)"
+                }}
+              />
+
+              {/* Grain noise */}
+              <div
+                className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")"
+                }}
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-primary/40" />
+            </div>
 
             {/* Esquinas decorativas */}
             <motion.div
