@@ -4,4 +4,4 @@ node_modules
 README.md
 *.log
 .DS_Store
-frank.jpg
+/frank.jpg
