@@ -1,18 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Crown, Scissors, Sparkles, Droplets } from "lucide-react";
 
 function scrollToBooking() {
   document.getElementById("reservar")?.scrollIntoView({ behavior: "smooth" });
 }
 
-const fadeUp = {
+const EASE = [0.5, 0, 0, 1] as [number, number, number, number];
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay: i * 0.12, ease: [0.5, 0, 0, 1] }
+    transition: { duration: 0.8, delay: i * 0.12, ease: EASE }
   })
 };
 
